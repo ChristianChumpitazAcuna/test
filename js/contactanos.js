@@ -32,7 +32,7 @@ formContactanos.addEventListener('submit',
 
             fetch(url, configuracion)
                 .then(response => {
-                    console.log('Respuesta del servidor: ', response);
+                    //console.log('Respuesta del servidor: ', response);
                     response.json();
                     mostrarMensajeCorrecto();
                     limpiarCampos();
