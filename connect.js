@@ -42,7 +42,7 @@ app.post("/api/contactanos", (req, res) => {
         descon: req.body.descripcion
     };
     //Insertamos los datos en tabla creada CONTACTANOS
-    let sql = "INSERT INTO contactanos SET ?";
+    let sql = "INSERT INTO CONTACTANOS SET ?";
     conexion.query(sql, data, function (error, results) {
         if (error) {
             throw error;
