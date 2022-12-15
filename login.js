@@ -19,7 +19,7 @@ app.use(session({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(__dirname + '/'));
 
 // http://localhost:3000/
 app.get('/', function (request, response) {
