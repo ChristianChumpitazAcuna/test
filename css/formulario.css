@@ -1,6 +1,7 @@
 /*=== Contactanos :INICIO ===*/
 #contactanos{
     background-color: rgb(239, 239, 239);
+    padding: 50px 90px;
 }
 .contactme>.container>.contactme-contacts {
     width: 100%;
@@ -138,7 +139,7 @@
     border: none;
     overflow: hidden;
     padding: 0.5rem;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(177, 229, 238);
     color: black;
 }
 
