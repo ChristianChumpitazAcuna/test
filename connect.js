@@ -1,4 +1,3 @@
-//De acuerdo a lo que hemos instalado
 var express = require("express");
 var mysql = require("mysql");
 var app = express();
@@ -8,7 +7,6 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static(__dirname + '/'));
 
-//Verficar si esta informacion es correcta de acuerdo a tu localhost
 var conexion = mysql.createConnection({
     host: "localhost",
     user: "christian",
@@ -16,7 +14,6 @@ var conexion = mysql.createConnection({
     database: "db_landing_page"
 });
 
-//Verificar si la conexion a base de datos fue exitosa ,de lo contrario te devolvera un error
 conexion.connect(function (error) {
     if (error) {
         console.log(error)
@@ -32,7 +29,6 @@ app.listen(puerto, function () {
     console.log("Servidor funcionando en puerto: " + puerto);
 });
 
-//El contrato entre el servidor y el cliente para permitir la inserción de registros en la tabla
 app.post("/api/contactanos", (req, res) => {
     console.log('datos : ', req.body);
     let data = {
@@ -41,8 +37,7 @@ app.post("/api/contactanos", (req, res) => {
         asucon: req.body.asunto,
         descon: req.body.descripcion
     };
-    //Insertamos los datos en tabla creada CONTACTANOS
-    let sql = "INSERT INTO CONTACTANOS SET ?";
+    let sql = "INSERT INTO contactanos SET ?";
     conexion.query(sql, data, function (error, results) {
         if (error) {
             throw error;
@@ -52,4 +47,3 @@ app.post("/api/contactanos", (req, res) => {
         }
     });
 });
-
