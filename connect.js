@@ -1,15 +1,15 @@
 //De acuerdo a lo que hemos instalado
-var express = require("express");
-var mysql = require("mysql");
-var app = express();
-var cors = require("cors");
+const express = require("express");
+const mysql = require("mysql");
+const app = express();
+const cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
 app.use(express.static(__dirname + '/'));
 
 //Verficar si esta informacion es correcta de acuerdo a tu localhost
-var conexion = mysql.createConnection({
+const conexion = mysql.createConnection({
     host: "localhost",
     user: "christian",
     password: "2002",
