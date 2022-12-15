@@ -1,64 +1,55 @@
-const url = "http://44.194.135.43:3000/api/contactanos"; //Cambiar por ip del servidor en caso la db este en otra maquina. (34.193.52.0/)
+const url = "http://44.194.135.43:3000/api/pedido/";
+let resultados = '';
+const formArticulo = document.querySelector("form");
+const userped = document.getElementById("USERPED");
+const emausped = document.getElementById("EMAUSPED");
+const celusped = document.getElementById("CELUSPED");
+const fooped = document.getElementById("FOODPED");
+const msgped = document.getElementById("MSGPED");
+var opcion = '';
 
-const formContactanos = document.getElementById("formulario-contactanos");
-const nombre = document.getElementById("nombre");
-const correo = document.getElementById("correo");
-const asunto = document.getElementById("asunto");
-const descripcion = document.getElementById("descripcion");
+btnCrear.addEventListener('click', () => {
+    console.log("Acción de listar activada");
+    opcion = 'crear';
+});
 
-formContactanos.addEventListener('submit',
+formArticulo.addEventListener('submit',
     (e) => {
         e.preventDefault();
-        if (nombre.value == "" || correo.value == "" || asunto.value == "" || descripcion.value == "") {
-            mostrarMensajeError();
-            return false;
-        } else {
-            console.log("Todos los campos están completos");
-
-            let configuracion = {
-                method: 'POST',
-                headers: {
-                    'content-Type': 'application/json'
-                },
-                body: JSON.stringify(
+        if (opcion == 'crear') {
+            if (USERPED.value == "" || EMAUSPED.value == "" || CELUSPED.value == "" || FOODPED.value == "" || MSGPED.value == "") {
+                alert("Asegúrese de que todos los campos estén completos");
+                return false;
+            } else {
+                console.log("Todos los campos están completos");
+                fetch(
+                    url,
                     {
-                        nombre: nombre.value,
-                        correo: correo.value,
-                        asunto: asunto.value,
-                        descripcion: descripcion.value
+                        method: 'POST',
+                        headers: {
+                            'content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(
+                            {
+                                USERPED: USERPED.value,
+                                EMAUSPED: EMAUSPED.value,
+                                CELUSPED: CELUSPED.value,
+                                FOODPED: FOODPED.value,
+                                MSGPED: MSGPED.value
+                            }
+                        )
                     }
                 )
-            };
-
-            fetch(url, configuracion)
-                .then(response => {
-                    // console.log('Respuesta del servidor: ', response);
-                    response.json();
-                    mostrarMensajeCorrecto();
-                    limpiarCampos();
-                });
+                    .then(
+                        response => response.json()
+                    )
+                    .then(
+                        response => location.reload()
+                    );
+            }
+        } else if (opcion == 'editar') {
+            console.log("Activado el ");
         }
     }
 );
 
-/*Mensaje de confirmacion de matricula*/
-function mostrarMensajeCorrecto() {
-    let mensaje = document.getElementById("snackbar");
-    mensaje.className = "show-correcto";
-    mensaje.innerText = "Asunto resgistrado con exito 🙂";
-    setTimeout(function () { mensaje.className = mensaje.className.replace("show-correcto", ""); }, 3000);
-}
-
-function mostrarMensajeError() {
-    let mensaje = document.getElementById("snackbar");
-    mensaje.className = "show-error";
-    mensaje.innerText = "Valores incorrectos 🤨"
-    setTimeout(function () { mensaje.className = mensaje.className.replace("show-error", ""); }, 3000);
-}
-
-function limpiarCampos() {
-    nombre.value = "";
-    correo.value = "";
-    asunto.value = "";
-    descripcion.value = "";
-}
