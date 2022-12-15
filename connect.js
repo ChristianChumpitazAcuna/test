@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/'));
 var conexion = mysql.createConnection({
     host: "localhost",
     user: "christian",
-    password: "c2002",
+    password: "2002",
     database: "db_landing_page"
 });
 
