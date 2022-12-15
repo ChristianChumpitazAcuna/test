@@ -1,16 +1,16 @@
-const mysql = require('mysql');
-const express = require('express');
-const session = require('express-session');
-const path = require('path');
+var mysql = require('mysql');
+var express = require('express');
+var session = require('express-session');
+var path = require('path');
 
-const connection = mysql.createConnection({
+var connection = mysql.createConnection({
     host: 'localhost',
     user: 'christian',
     password: '2002',
     database: 'login-socket'
 });
 
-const app = express();
+var app = express();
 
 app.use(session({
     secret: 'secret',
