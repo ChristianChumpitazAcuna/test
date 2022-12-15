@@ -1,15 +1,15 @@
 //De acuerdo a lo que hemos instalado
-const express = require("express");
-const mysql = require("mysql");
-const app = express();
-const cors = require("cors");
+var express = require("express");
+var mysql = require("mysql");
+var app = express();
+var cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
-app.use(express.static(__dirname + '/'));
+//app.use(express.static(__dirname + '/'));
 
 //Verficar si esta informacion es correcta de acuerdo a tu localhost
-const conexion = mysql.createConnection({
+var conexion = mysql.createConnection({
     host: "localhost",
     user: "christian",
     password: "2002",
@@ -34,7 +34,7 @@ app.listen(puerto, function () {
 
 //El contrato entre el servidor y el cliente para permitir la inserción de registros en la tabla
 app.post("/api/contactanos", (req, res) => {
-    console.log('datos : ', req.body);
+    //console.log('datos : ', req.body);
     let data = {
         nomcon: req.body.nombre,
         corrcon: req.body.correo,
