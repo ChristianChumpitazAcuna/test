@@ -1,6 +1,6 @@
 const url = "http://44.194.135.43:3000/api/contactanos"; //Cambiar por ip del servidor en caso la db este en otra maquina. (34.193.52.0/)
 
-const formContactanos = document.getElementById("formulario");
+const formContactanos = document.getElementById("formulario-contactanos");
 const nombre = document.getElementById("nombre");
 const correo = document.getElementById("correo");
 const asunto = document.getElementById("asunto");
@@ -32,7 +32,7 @@ formContactanos.addEventListener('submit',
 
             fetch(url, configuracion)
                 .then(response => {
-                    //console.log('Respuesta del servidor: ', response);
+                    // console.log('Respuesta del servidor: ', response);
                     response.json();
                     mostrarMensajeCorrecto();
                     limpiarCampos();
@@ -56,7 +56,7 @@ function mostrarMensajeError() {
     setTimeout(function () { mensaje.className = mensaje.className.replace("show-error", ""); }, 3000);
 }
 
-function limpiarCampos() {
+function limpiarCampos(){
     nombre.value = "";
     correo.value = "";
     asunto.value = "";
