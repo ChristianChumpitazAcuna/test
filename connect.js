@@ -16,7 +16,6 @@ var conexion = mysql.createConnection({
     database: "db_landing_page"
 });
 
-app.use(express.static(__dirname + '/'));
 //Verificar si la conexion a base de datos fue exitosa ,de lo contrario te devolvera un error
 conexion.connect(function (error) {
     if (error) {
