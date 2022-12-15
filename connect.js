@@ -13,7 +13,7 @@ var conexion = mysql.createConnection({
     host: "localhost",
     user: "christian",
     password: "2002",
-    database: "login-socket"
+    database: "db_landing_page"
 });
 
 //Verificar si la conexion a base de datos fue exitosa ,de lo contrario te devolvera un error
