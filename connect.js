@@ -1,64 +1,55 @@
-const url = "http://44.194.135.43:3000/api/contactanos"; //Cambiar por ip del servidor en caso la db este en otra maquina. (34.193.52.0/)
+//De acuerdo a lo que hemos instalado
+var express = require("express");
+var mysql = require("mysql");
+var app = express();
+var cors = require("cors");
 
-const formContactanos = document.getElementById("formulario");
-const nombre = document.getElementById("nombre");
-const correo = document.getElementById("correo");
-const asunto = document.getElementById("asunto");
-const descripcion = document.getElementById("descripcion");
+app.use(express.json());
+app.use(cors());
+app.use(express.static(__dirname + '/'));
 
-formContactanos.addEventListener('submit',
-    (e) => {
-        e.preventDefault();
-        if (nombre.value == "" || correo.value == "" || asunto.value == "" || descripcion.value == "") {
-            mostrarMensajeError();
-            return false;
-        } else {
-            console.log("Todos los campos están completos");
+//Verficar si esta informacion es correcta de acuerdo a tu localhost
+var conexion = mysql.createConnection({
+    host: "localhost",
+    user: "christian",
+    password: "2002",
+    database: "db_landing_page"
+});
 
-            let configuracion = {
-                method: 'POST',
-                headers: {
-                    'content-Type': 'application/json'
-                },
-                body: JSON.stringify(
-                    {
-                        nombre: nombre.value,
-                        correo: correo.value,
-                        asunto: asunto.value,
-                        descripcion: descripcion.value
-                    }
-                )
-            };
-
-            fetch(url, configuracion)
-                .then(response => {
-                    // console.log('Respuesta del servidor: ', response);
-                    response.json();
-                    mostrarMensajeCorrecto();
-                    limpiarCampos();
-                });
-        }
+//Verificar si la conexion a base de datos fue exitosa ,de lo contrario te devolvera un error
+conexion.connect(function (error) {
+    if (error) {
+        console.log(error)
+        throw error;
+    } else {
+        console.log("Conexión exitosa");
     }
-);
+});
 
-/*Mensaje de confirmacion de matricula*/
-function mostrarMensajeCorrecto() {
-    let mensaje = document.getElementById("snackbar");
-    mensaje.className = "show-correcto";
-    mensaje.innerText = "Asunto resgistrado con exito 🙂";
-    setTimeout(function () { mensaje.className = mensaje.className.replace("show-correcto", ""); }, 3000);
-}
+const puerto = process.env.PUERTO || 3000;
 
-function mostrarMensajeError() {
-    let mensaje = document.getElementById("snackbar");
-    mensaje.className = "show-error";
-    mensaje.innerText = "Valores incorrectos 🤨"
-    setTimeout(function () { mensaje.className = mensaje.className.replace("show-error", ""); }, 3000);
-}
+app.listen(puerto, function () {
+    console.log("Servidor funcionando en puerto: " + puerto);
+});
 
-function limpiarCampos() {
-    nombre.value = "";
-    correo.value = "";
-    asunto.value = "";
-    descripcion.value = "";
-}
+//El contrato entre el servidor y el cliente para permitir la inserción de registros en la tabla
+app.post("/api/contactanos", (req, res) => {
+    console.log('datos : ', req.body);
+    let data = {
+        nomcon: req.body.nombre,
+        corrcon: req.body.correo,
+        asucon: req.body.asunto,
+        descon: req.body.descripcion
+    };
+    //Insertamos los datos en tabla creada CONTACTANOS
+    let sql = "INSERT INTO contactanos SET ?";
+    conexion.query(sql, data, function (error, results) {
+        if (error) {
+            throw error;
+        } else {
+            console.log(data);
+            res.send(data);
+        }
+    });
+});
+
