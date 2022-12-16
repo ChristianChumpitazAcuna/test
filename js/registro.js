@@ -1,10 +1,11 @@
+
 const url = "http://localhost:3000/api/pedido/";
 let resultados = '';
 const formArticulo = document.querySelector("form");
 const userped = document.getElementById("USERPED");
-const emausped = document.getElementById("EMAUSPED");
-const celusped = document.getElementById("CELUSPED");
-const foodped = document.getElementById("FOODPED");
+const emauser = document.getElementById("EMAUSER");
+const celuuser = document.getElementById("CELUUSER");
+const menped = document.getElementById("MENPED");
 const msgped = document.getElementById("MSGPED");
 var opcion = '';
 
@@ -17,7 +18,7 @@ formArticulo.addEventListener('submit',
     (e) => {
         e.preventDefault();
         if (opcion == 'crear') {
-            if (USERPED.value == "" || EMAUSPED.value == "" || CELUSPED.value == "" || FOODPED.value == "" || MSGPED.value == "") {
+            if (USERPED.value == "" || EMAUSER.value == "" || CELUUSER.value == "" || MENPED.value == "" || MSGPED.value == "") {
                 alert("Asegúrese de que todos los campos estén completos");
                 return false;
             } else {
@@ -32,9 +33,9 @@ formArticulo.addEventListener('submit',
                         body: JSON.stringify(
                             {
                                 USERPED: USERPED.value,
-                                EMAUSPED: EMAUSPED.value,
-                                CELUSPED: CELUSPED.value,
-                                FOODPED: FOODPED.value,
+                                EMAUSER: EMAUSER.value,
+                                CELUUSER: CELUUSER.value,
+                                MENPED: MENPED.value,
                                 MSGPED: MSGPED.value
                             }
                         )
@@ -52,31 +53,3 @@ formArticulo.addEventListener('submit',
         }
     }
 );
-/*validacion de letrasTEST*/
-
-function soloLetras(e) {
-    key = e.keyCode || e.which;
-    tecla = String.fromCharCode(key).toLowerCase();
-    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-    especiales = [8, 37, 39, 46];
-
-    tecla_especial = false
-    for (var i in especiales) {
-        if (key == especiales[i]) {
-            tecla_especial = true;
-            break;
-        }
-    }
-
-    if (letras.indexOf(tecla) == -1 && !tecla_especial)
-        return false;
-}
-
-function limpia() {
-    var val = document.getElementById("miInput").value;
-    var tam = val.length;
-    for (i = 0; i < tam; i++) {
-        if (!isNaN(val[i]))
-            document.getElementById("miInput").value = '';
-    }
-}
