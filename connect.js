@@ -38,7 +38,7 @@ app.post("/api/pedido", (req, res) => {
         foodped: req.body.FOODPED,
         msgped: req.body.MSGPED
     };
-    let sql = "INSERT INTO pedido SET ?";
+    let sql = "INSERT INTO Pedido SET ?";
     conexion.query(sql, data, function (error, results) {
         if (error) {
             throw error;
