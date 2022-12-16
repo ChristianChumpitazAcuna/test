@@ -20,8 +20,8 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 var conexion = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "root",
+    user: "christian",
+    password: "2002",
     database: "dbFormulario",
 });
 
