@@ -30,7 +30,7 @@ app.listen(puerto, function () {
 });
 
 app.post("/api/contactanos", (req, res) => {
-    console.log('datos : ', req.body);
+    //console.log('datos : ', req.body);
     let data = {
         nomcon: req.body.nombre,
         corrcon: req.body.correo,
