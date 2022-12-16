@@ -1,28 +1,28 @@
-
 const url = "http://localhost:3000/api/pedido/";
 let resultados = '';
 const formArticulo = document.querySelector("form");
-const userped = document.getElementById("USERPED");
-const emauser = document.getElementById("EMAUSER");
-const celuuser = document.getElementById("CELUUSER");
-const menped = document.getElementById("MENPED");
-const msgped = document.getElementById("MSGPED");
-var opcion = '';
+const nomcon = document.getElementById("NOMCON");
+const apecon = document.getElementById("APECON");
+const celcon = document.getElementById("CELCON");
+const emacon = document.getElementById("EMACON");
+const msgcon = document.getElementById("MSGCON");
+var opcion = 'crear';
 
-btnCrear.addEventListener('click', () => {
+/*btnCrear.addEventListener('click', () => {
     console.log("Acción de listar activada");
     opcion = 'crear';
-});
+});*/
 
 formArticulo.addEventListener('submit',
     (e) => {
         e.preventDefault();
         if (opcion == 'crear') {
-            if (USERPED.value == "" || EMAUSER.value == "" || CELUUSER.value == "" || MENPED.value == "" || MSGPED.value == "") {
+            if (NOMCON.value == "" || APECON.value == "" || CELCON.value == "" || EMACON.value == "" || MSGCON.value == "") {
                 alert("Asegúrese de que todos los campos estén completos");
                 return false;
             } else {
                 console.log("Todos los campos están completos");
+                console.log(NOMCON.value);
                 fetch(
                     url,
                     {
@@ -32,11 +32,11 @@ formArticulo.addEventListener('submit',
                         },
                         body: JSON.stringify(
                             {
-                                USERPED: USERPED.value,
-                                EMAUSER: EMAUSER.value,
-                                CELUUSER: CELUUSER.value,
-                                MENPED: MENPED.value,
-                                MSGPED: MSGPED.value
+                                NOMCON: NOMCON.value,
+                                APECON: APECON.value,
+                                CELCON: CELCON.value,
+                                EMACON: EMACON.value,
+                                MSGCON: MSGCON.value
                             }
                         )
                     }
