@@ -10,44 +10,6 @@ const connection = mysql.createConnection({
     database: 'login-socket'
 });
 
-
-connection.connect(function (error) {
-    if (error) {
-        throw error;
-    } else {
-        console.log("Conexión exitosa");
-    }
-});
-
-
-const puerto = process.env.PUERTO || 3000;
-
-app.listen(puerto, function () {
-    console.log("Servidor funcionando en puerto: " + puerto);
-});
-
-
-app.post("/api/pedido", (req, res) => {
-    let data = {
-        userped: req.body.USERPED,
-        emausped: req.body.EMAUSPED,
-        celusped: req.body.CELUSPED,
-        foodped: req.body.FOODPED,
-        msgped: req.body.MSGPED
-    };
-    let sql = "INSERT INTO Pedido SET ?";
-    connection.query(sql, data, function (error, results) {
-        if (error) {
-            throw error;
-        } else {
-            console.log(data);
-            res.send(data);
-        }
-    });
-});
-
-
-
 const app = express();
 
 app.use(session({
