@@ -13,6 +13,8 @@ var conexion = mysql.createConnection({
     database: "dbFormulario",
 });
 
+app.use(express.static(__dirname + '/'));
+
 
 conexion.connect(function (error) {
     if (error) {
