@@ -30,14 +30,14 @@ app.listen(puerto, function () {
 });
 
 app.post("/api/contactanos", (req, res) => {
-    //console.log('datos : ', req.body);
+    console.log('datos : ', req.body);
     let data = {
         nomcon: req.body.nombre,
         corrcon: req.body.correo,
         asucon: req.body.asunto,
         descon: req.body.descripcion
     };
-    let sql = "INSERT INTO contactanos SET ?";
+    let sql = "INSERT INTO CONTACTANOS SET ?";
     conexion.query(sql, data, function (error, results) {
         if (error) {
             throw error;
