@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 });
 
 
-conexion.connect(function (error) {
+connection.connect(function (error) {
     if (error) {
         throw error;
     } else {
@@ -36,7 +36,7 @@ app.post("/api/pedido", (req, res) => {
         msgped: req.body.MSGPED
     };
     let sql = "INSERT INTO Pedido SET ?";
-    conexion.query(sql, data, function (error, results) {
+    connection.query(sql, data, function (error, results) {
         if (error) {
             throw error;
         } else {
