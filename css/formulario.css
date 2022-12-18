@@ -1,62 +1,66 @@
-#overview{
-    background-color: rgb(239, 239, 239);
+
+.login {
+    width: 400px;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin: 100px auto;
 }
-.order .row {
-    padding: 2rem;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-    background: #fff;
+
+.login h1 {
+    text-align: center;
+    color: #5b6574;
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid #dee0e4;
+}
+
+.login a {
+    text-align: center;
+    color: #5b6574;
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid #dee0e4;
+}
+
+.login form {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
-    border-radius: .5rem;
+    justify-content: center;
+    padding-top: 20px;
 }
 
-.order .row .image {
-    flex: 1 1 30rem;
-}
-
-.order .row .image img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: .5rem;
-}
-
-.order .row form {
-    flex: 1 1 50rem;
-    padding: 1rem;
-}
-
-.order .row form .inputBox {
+.login form label {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #1984bc;
+    color: #ffffff;
 }
 
-.order .row form .inputBox input,
-.order .row form textarea {
-    padding: 1rem;
-    margin: 1rem 0;
-    font-size: 1.7rem;
-    color: #333;
-    text-transform: none;
-    border: .1rem solid rgba(0, 0, 0, .3);
-    border-radius: .5rem;
-    width: 49%;
+.login form input[type="password"],
+.login form input[type="text"] {
+    width: 310px;
+    height: 50px;
+    border: 1px solid #dee0e4;
+    margin-bottom: 20px;
+    padding: 0 15px;
 }
 
-.order .row form textarea {
+.login form input[type="submit"] {
     width: 100%;
-    resize: none;
-    height: 15rem;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #1984bc;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    transition: background-color 0.2s;
 }
 
-.order .row form .btn {
-    background: none;
+.login form input[type="submit"]:hover {
+    background-color: #1984bc;
+    transition: background-color 0.2s;
 }
-
-.order .row form .btn:hover {
-    background: var(--red);
-}
-
-/*=== Contactanos :FIN ===*/

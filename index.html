@@ -752,39 +752,48 @@
 
 
             <!--INICIO:Contactanos-->
-            <div id="overview">
-                <section class="order" id="order">
-                    <div class="linea"></div>
-                    <h1 class="heading">Contactanos</h1>
+            <section class="contacto" id="contacto">
+                <h2>Contactanos</h2>
+                <div class="contenido-contacto">
+                    <div class="informacion-contacto">
+                        <h3>Información de contacto</h3>
+                        <p>support@carlospedrosilvaluyo.com</p>
+                        <p>+51 996677994</p>
+                    </div>
+
                     <div id="form" class="row">
                         <form class="form">
-                            <div class="inputBox" id="NombresApellidos">
-                                <input id="USERPED" placeholder="Nombre y Apellidos" type="text" class="form-control"
-                                    required="" onkeypress="return soloLetras(event)" onblur="limpia()" />
+                            <h2>Formulario de contacto</h2>
+                            <div class="inputBox">
+                                <label for="nombre" class="colocar_nombre">Nombre
+                                    <input id="USERPED" placeholder="" type="text" class="form-control" />
                             </div>
-                            <div class="inputBox" id="Otros">
-                                <input id="EMAUSPED" placeholder="Correo" type="text" class="form-control"
-                                    required="" />
-                                <input id="CELUSPED" placeholder="Celular" type="number" class="form-control"
-                                    required="" onkeypress="if(this.value.length > 8) return false" />
+                            <div class="inputBox">
+                                <label for="nombre" class="colocar_nombre">Correo
+                                    <input id="EMAUSPED" placeholder="" type="text" class="form-control" />
                             </div>
-                            <div class="inputBox" id="NombresApellidos">
-                                <input id="FOODPED" placeholder="Pedido" type="text" class="form-control" />
+                            <div class="inputBox">
+                                <label for="nombre" class="colocar_nombre">Celular
+                                    <input id="CELUSPED" placeholder="" type="text" class="form-control" />
                             </div>
-                            <div id="mensaje">
-                                <textarea id="MSGPED" placeholder="Mensaje" cols="30" rows="10"
-                                    class="form-control"></textarea>
+                            <div class="inputBox">
+                                <label for="nombre" class="colocar_nombre">Direccion
+                                    <input id="FOODPED" placeholder="" type="text" class="form-control" />
                             </div>
+
+                            <div class="inputBox">
+                                <label for="nombre" class="colocar_nombre">Razon de Consulta
+                                    <input id="MSGPED" placeholder="" cols="30" rows="10" class="form-control" />
+                            </div>
+
+
                             <button id="btnCrear" type="submit" class="btn btn-secondary">
                                 Enviar
-                            </button>
-
-
-                            <button type="reset" class="btn btn-secondary">Borrar</button>
                         </form>
+                        </button>
+
                     </div>
-                </section>
-            </div>
+            </section>
             <!--FIN:Contactanos-->
 
             <article id="Ubicacion">
