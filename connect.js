@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/'));
 
@@ -45,6 +46,7 @@ conexion.connect(function (error) {
         console.log("Conexión exitosa");
     }
 });
+
 
 
 app.post("/api/pedido", (req, res) => {
