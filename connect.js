@@ -5,7 +5,6 @@ var cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/'));
 
 var conexion = mysql.createConnection({
