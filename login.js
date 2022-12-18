@@ -20,7 +20,7 @@ conexion.connect(function (error) {
         console.log(error)
         throw error;
     } else {
-        console.log("Conexión exitosa");
+        console.log("Login Conexión exitosa");
     }
 });
 
@@ -30,24 +30,6 @@ app.listen(puerto, function () {
     console.log("Servidor funcionando en puerto: " + puerto);
 });
 
-app.post("/api/contactanos", (req, res) => {
-    console.log('datos : ', req.body);
-    let data = {
-        nomcon: req.body.nombre,
-        corrcon: req.body.correo,
-        asucon: req.body.asunto,
-        descon: req.body.descripcion
-    };
-    let sql = "INSERT INTO contactanos SET ?";
-    conexion.query(sql, data, function (error, results) {
-        if (error) {
-            throw error;
-        } else {
-            console.log(data);
-            res.send(data);
-        }
-    });
-});
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + "/index.html");
