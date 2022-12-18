@@ -751,50 +751,31 @@
 
 
 
-            <!--INICIO:Contactanos-->
-            <section class="contacto" id="contacto">
-                <h2>Contactanos</h2>
-                <div class="contenido-contacto">
-                    <div class="informacion-contacto">
-                        <h3>Información de contacto</h3>
-                        <p>support@carlospedrosilvaluyo.com</p>
-                        <p>+51 996677994</p>
-                    </div>
-
+            <!--INICIO:Formulario-->
+            <div id="overview" class="overview">
+                <a name="pedidos"> </a>
+                <section class="order" id="order">
+                    <h1 class="ordenar"><span>MANDANOS</span> TU PEDIDO</h1>
                     <div id="form" class="row">
                         <form class="form">
-                            <h2>Formulario de contacto</h2>
                             <div class="inputBox">
-                                <label for="nombre" class="colocar_nombre">Nombre
-                                    <input id="USERPED" placeholder="" type="text" class="form-control" />
+                                <input id="USERPED" placeholder="Nombre" type="text" class="form-control" />
+                                <input id="EMAUSPED" placeholder="Correo" type="text" class="form-control" />
                             </div>
                             <div class="inputBox">
-                                <label for="nombre" class="colocar_nombre">Correo
-                                    <input id="EMAUSPED" placeholder="" type="text" class="form-control" />
+                                <input id="CELUSPED" placeholder="Celular" type="text" class="form-control" />
+                                <input id="FOODPED" placeholder="Pedido" type="text" class="form-control" />
                             </div>
-                            <div class="inputBox">
-                                <label for="nombre" class="colocar_nombre">Celular
-                                    <input id="CELUSPED" placeholder="" type="text" class="form-control" />
-                            </div>
-                            <div class="inputBox">
-                                <label for="nombre" class="colocar_nombre">Direccion
-                                    <input id="FOODPED" placeholder="" type="text" class="form-control" />
-                            </div>
-
-                            <div class="inputBox">
-                                <label for="nombre" class="colocar_nombre">Razon de Consulta
-                                    <input id="MSGPED" placeholder="" cols="30" rows="10" class="form-control" />
-                            </div>
-
-
+                            <textarea id="MSGPED" placeholder="Mensaje Adicional" cols="30" rows="10"
+                                class="form-control"></textarea>
                             <button id="btnCrear" type="submit" class="btn btn-secondary">
-                                Enviar
+                                Mandar pedido
+                            </button>
                         </form>
-                        </button>
-
                     </div>
-            </section>
-            <!--FIN:Contactanos-->
+                </section>
+            </div>
+            <!--FIN:-->
 
             <article id="Ubicacion">
                 <div class="title">
