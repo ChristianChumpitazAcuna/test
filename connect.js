@@ -33,7 +33,7 @@ app.listen(puerto, function () {
 });
 
 //El contrato entre el servidor y el cliente para permitir la inserción de registros en la tabla
-app.post("/api/CONTACTANOS", (req, res) => {
+app.post("/api/contactanos", (req, res) => {
     console.log('datos : ', req.body);
     let data = {
         nomcon: req.body.nombre,
@@ -42,7 +42,7 @@ app.post("/api/CONTACTANOS", (req, res) => {
         descon: req.body.descripcion
     };
     //Insertamos los datos en tabla creada CONTACTANOS
-    let sql = "INSERT INTO CONTACTANOS SET ?";
+    let sql = "INSERT INTO contactanos SET ?";
     conexion.query(sql, data, function (error, results) {
         if (error) {
             throw error;
