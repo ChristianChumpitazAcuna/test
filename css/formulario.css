@@ -1,66 +1,123 @@
+.overview {
+    padding: 2rem 9%;
+    background-color: #fff2f2;
+    padding-bottom: 115px;
 
-.login {
-    width: 400px;
-    background-color: #ffffff;
-    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
-    margin: 100px auto;
 }
 
-.login h1 {
+.ordenar {
     text-align: center;
-    color: #5b6574;
-    font-size: 24px;
-    padding: 20px 0 20px 0;
-    border-bottom: 1px solid #dee0e4;
+    font-size: 3.5rem;
+    padding: 1rem;
+    color: rgb(254, 3, 3);
 }
 
-.login a {
-    text-align: center;
-    color: #5b6574;
-    font-size: 24px;
-    padding: 20px 0 20px 0;
-    border-bottom: 1px solid #dee0e4;
+
+.btn {
+    display: inline-block;
+    padding: .8rem 3rem;
+    border: .2rem solid var(--red);
+    color: var(--red);
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: .7rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    margin-top: 1rem;
 }
 
-.login form {
+.boton2 {
+    display: flex;
+    justify-content: center;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--red);
+    transition: .3s linear;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+
+
+
+
+
+.order .row {
+    padding: 2rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    background: rgb(255, 217, 217);
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 20px;
+    gap: 1.5rem;
+    border-radius: 50px;
+    border: 4px dashed;
 }
 
-.login form label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: #1984bc;
-    color: #ffffff;
+.order .row .image {
+    flex: 1 1 30rem;
 }
 
-.login form input[type="password"],
-.login form input[type="text"] {
-    width: 310px;
-    height: 50px;
-    border: 1px solid #dee0e4;
-    margin-bottom: 20px;
-    padding: 0 15px;
-}
-
-.login form input[type="submit"] {
+.order .row .image img {
+    height: 100%;
     width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    background-color: #1984bc;
-    border: 0;
-    cursor: pointer;
-    font-weight: bold;
-    color: #ffffff;
-    transition: background-color 0.2s;
+    object-fit: cover;
+    border-radius: .5rem;
 }
 
-.login form input[type="submit"]:hover {
-    background-color: #1984bc;
-    transition: background-color 0.2s;
+.order .row form {
+    flex: 1 1 50rem;
+    padding: 1rem;
+    background-image: url("https://img.freepik.com/vector-gratis/ondulado-rojo-fondo-semitono_1409-1274.jpg?w=2000");
+    width: 100%;
+    border-radius: 30px;
+    text-align: center;
+}
+
+
+.order .row form .inputBox {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.order .row form .inputBox input,
+.order .row form textarea {
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 1.7rem;
+    color: #333;
+    text-transform: none;
+    border: 6px solid rgba(23, 3, 3, 0.893);
+    border-radius: .5rem;
+    width: 49%;
+    background-color: rgba(255, 255, 255, 0.692);
+    border-radius: 20px;
+
+}
+
+.order .row form textarea {
+    width: 100%;
+    resize: none;
+    height: 15rem;
+}
+
+.order .row form .btn {
+    background-color: #ff3838b0;
+    border: solid 3px rgb(158, 38, 38);
+    text-shadow: 1px 2px 6px rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #fff;
 }
