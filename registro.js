@@ -1,28 +1,27 @@
-const url = "http://localhost:3000/api/pedido/";
+const url = "http://44.194.135.43:3000/api/pedido/";
 let resultados = '';
 const formArticulo = document.querySelector("form");
-const nomcon = document.getElementById("NOMCON");
-const apecon = document.getElementById("APECON");
-const celcon = document.getElementById("CELCON");
-const emacon = document.getElementById("EMACON");
-const msgcon = document.getElementById("MSGCON");
-var opcion = 'crear';
+const userped = document.getElementById("USERPED");
+const emausped = document.getElementById("EMAUSPED");
+const celusped = document.getElementById("CELUSPED");
+const fooped = document.getElementById("FOODPED");
+const msgped = document.getElementById("MSGPED");
+var opcion = '';
 
-/*btnCrear.addEventListener('click', () => {
+btnCrear.addEventListener('click', () => {
     console.log("Acción de listar activada");
     opcion = 'crear';
-});*/
+});
 
 formArticulo.addEventListener('submit',
     (e) => {
         e.preventDefault();
         if (opcion == 'crear') {
-            if (NOMCON.value == "" || APECON.value == "" || CELCON.value == "" || EMACON.value == "" || MSGCON.value == "") {
+            if (USERPED.value == "" || EMAUSPED.value == "" || CELUSPED.value == "" || FOODPED.value == "" || MSGPED.value == "") {
                 alert("Asegúrese de que todos los campos estén completos");
                 return false;
             } else {
                 console.log("Todos los campos están completos");
-                console.log(NOMCON.value);
                 fetch(
                     url,
                     {
@@ -32,11 +31,11 @@ formArticulo.addEventListener('submit',
                         },
                         body: JSON.stringify(
                             {
-                                NOMCON: NOMCON.value,
-                                APECON: APECON.value,
-                                CELCON: CELCON.value,
-                                EMACON: EMACON.value,
-                                MSGCON: MSGCON.value
+                                USERPED: USERPED.value,
+                                EMAUSPED: EMAUSPED.value,
+                                CELUSPED: CELUSPED.value,
+                                FOODPED: FOODPED.value,
+                                MSGPED: MSGPED.value
                             }
                         )
                     }
